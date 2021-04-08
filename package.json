@@ -1,0 +1,11 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/xInfrRed/automation.git",
+  "author": "xInfrRed <xinfrredx@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "testcafe": "^1.14.0"
+  }
+}
