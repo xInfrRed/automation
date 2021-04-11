@@ -6,7 +6,7 @@ fixture`Getting Started`
 
 test('Invalid Credentials Login Test', async t => {
   await t
-    .click(basePage.loginButton)
+    .click(signIn.loginButton)
     .typeText(signIn.emailTextField, 'fakehotmail.com')
     .typeText(signIn.passwordTextField, 'password1')
     .click(signIn.submitButton)

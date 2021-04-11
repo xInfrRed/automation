@@ -4,6 +4,7 @@ import BasePage from '../pages/base.page'
 class SignIn extends BasePage {
   constructor() {
     super()
+    this.loginButton = Selector('a').withText('Sign in')
     this.emailTextField = Selector('#email')
     this.passwordTextField = Selector('#passwd')
     this.submitButton = Selector('#SubmitLogin')

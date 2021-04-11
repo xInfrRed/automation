@@ -1,12 +1,14 @@
-import page from '../pages/base.page'
+import BasePage from '../pages/base.page'
 import faker from 'faker';
 import generator from 'generate-password';
+import signIn from '../pages/sign-in.page'
+import signUp from '../pages/sign-up.page'
 
-const daysSelect = page.dayOfBirthSelectForm;
+const daysSelect = signUp.dayOfBirthSelectForm;
 const daysOption = daysSelect.find('option');
-const monthsSelect = page.monthOfBirthSelectForm ;
+const monthsSelect = signUp.monthOfBirthSelectForm ;
 const monthsOption = monthsSelect.find('option');
-const yearsSelect = page.yearOfBirthSelectForm ;
+const yearsSelect = signUp.yearOfBirthSelectForm ;
 const yearsOption = yearsSelect.find('option');
 const randomFirstName = faker.name.firstName();
 const randomLastName = faker.name.lastName();
@@ -14,10 +16,10 @@ const validEmail = faker.internet.email();
 const randomCompany = faker.company.companyName();
 const randomAddress = faker.address.streetAddress();
 const randomCity = faker.address.city()
-const stateSelect = page.stateTextSelectForm;
+const stateSelect = signUp.stateTextSelectForm;
 const stateOption = stateSelect.find('option');
 const randomZipcode = faker.address.zipCode();
-const countrySelect = page.countrySelectForm;
+const countrySelect = signUp.countrySelectForm;
 const countryOption = countrySelect.find('option');
 const randomMobilePhoneNumber = faker.phone.phoneNumberFormat();
 
@@ -38,31 +40,31 @@ fixture`Getting Started`
 test('Valid Credentials Login Test', async t => {
     for (const validPassword of validPasswords) {
   await t
-    .click(page.loginButton)
-    .typeText(page.emailCreateTextField, validEmail, { replace:true })
-    .click(page.submitCreateButton)
-    .click(page.genderSelectMaleButton)
-    .typeText(page.customerFirstNameTextField, randomFirstName)
-    .typeText(page.customerLastNameTextField, randomLastName)
-    .typeText(page.createPasswordTextField, validPassword, { replace: true })
+    .click(signIn.loginButton)
+    .typeText(signIn.emailCreateTextField, validEmail, { replace:true })
+    .click(signIn.submitCreateButton)
+    .click(signUp.genderSelectMaleButton)
+    .typeText(signUp.customerFirstNameTextField, randomFirstName)
+    .typeText(signUp.customerLastNameTextField, randomLastName)
+    .typeText(signUp.createPasswordTextField, validPassword, { replace: true })
     .click(daysSelect)
     .click(daysOption.withText('3'))
     .click(monthsSelect)
     .click(monthsOption.withText('August'))
     .click(yearsSelect)
     .click(yearsOption.withText('2001'))
-    .typeText(page.firstNameTextField, randomFirstName)
-    .typeText(page.lastNameTextField, randomLastName)
-    .typeText(page.companyTextField, randomCompany)
-    .typeText(page.address1TextField, randomAddress)
-    .typeText(page.cityTextField, randomCity)
+    .typeText(signUp.firstNameTextField, randomFirstName)
+    .typeText(signUp.lastNameTextField, randomLastName)
+    .typeText(signUp.companyTextField, randomCompany)
+    .typeText(signUp.address1TextField, randomAddress)
+    .typeText(signUp.cityTextField, randomCity)
     .click(stateSelect)
     .click(stateOption.withText('Alabama'))
-    .typeText(page.zipPostCodeTextField, randomZipcode)
+    .typeText(signUp.zipPostCodeTextField, randomZipcode)
     .click(countrySelect)
     .click(countryOption.withText('United States'))
-    .typeText(page.mobilePhoneNumberTextField, randomMobilePhoneNumber)
-    .click(page.registerButton)
+    .typeText(signUp.mobilePhoneNumberTextField, randomMobilePhoneNumber)
+    .click(signUp.registerButton)
 
 
 
