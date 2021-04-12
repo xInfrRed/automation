@@ -34,19 +34,7 @@ class Catalog extends BasePage{
 }
 
 
-    async buyItem() {
-        await t     
-        .click(this.cartButton)
-        .click(this.proceedButton)
-        .click(this.proceedButton)
-        .click(this.agreeTermsButton)
-        .click(this.proceedFormButton)
-        .click(this.bankWirePayButton)
-        .click(this.confirmOrderButton)
-  }
-
 }
-
 export default new Catalog()
 
 

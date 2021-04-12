@@ -7,6 +7,7 @@ fixture`Getting Started`
 
   test('Valid Credentials Login Test', async t => {
     await signUp.createAccount()
+    await signUp.fillForms()
 
   }) 
 
