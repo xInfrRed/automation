@@ -1,9 +1,9 @@
 import { Selector, t } from 'testcafe'
 import signIn from './sign-in.page'
-import faker from 'Faker'
+import faker from 'faker'
 import welcomePage from './welcome.page'
 import BasePage from './base.page'
-
+import data from '../data/data.json'
 
 class SignUp extends BasePage{
     constructor() {
@@ -39,7 +39,7 @@ class SignUp extends BasePage{
   } 
 
 
-    async fillForms() {
+    async fillRandomForms() {
         const daysSelect = this.dayOfBirthSelectForm;
         const daysOption = daysSelect.find('option');
         const monthsSelect = this.monthOfBirthSelectForm ;
@@ -58,7 +58,7 @@ class SignUp extends BasePage{
         const countryOption = countrySelect.find('option');
         const randomMobilePhoneNumber = faker.phone.phoneNumberFormat();
         const randomPassword = faker.internet.password();
-
+     
 
         await t
         .click(this.genderSelectMaleButton)
@@ -85,6 +85,54 @@ class SignUp extends BasePage{
         .click(this.registerButton)
         .wait(3000)
   }
+
+    async fillDataForms() {
+   
+        const daysSelect = this.dayOfBirthSelectForm;
+        const daysOption = daysSelect.find('option');
+        const monthsSelect = this.monthOfBirthSelectForm ;
+        const monthsOption = monthsSelect.find('option');
+        const yearsSelect = this.yearOfBirthSelectForm ;
+        const yearsOption = yearsSelect.find('option');
+        const randomAddress = faker.address.streetAddress();
+        const stateSelect = this.stateTextSelectForm;
+        const stateOption = stateSelect.find('option');
+        const randomZipcode = faker.address.zipCode();
+        const countrySelect = this.countrySelectForm;
+        const countryOption = countrySelect.find('option');
+        const randomMobilePhoneNumber = faker.phone.phoneNumberFormat();
+        const randomPassword = faker.internet.password();
+
+
+        const dataSet = require ('../data/data.json')
+        for ( data of dataSet ) {
+        await t
+        .click(this.genderSelectMaleButton)
+        .typeText(this.customerFirstNameTextField, data.firstname)
+        .typeText(this.customerLastNameTextField, data.lastname)
+        .typeText(this.createPasswordTextField, randomPassword)
+        .click(daysSelect)
+        .click(daysOption.withText('3'))
+        .click(monthsSelect)
+        .click(monthsOption.withText('August'))
+        .click(yearsSelect)
+        .click(yearsOption.withText('2001'))
+        .typeText(this.firstNameTextField, data.firstname)
+        .typeText(this.lastNameTextField, data.lastname)
+        .typeText(this.companyTextField, data.company)
+        .typeText(this.address1TextField, randomAddress)
+        .typeText(this.cityTextField, data.city)
+        .click(stateSelect)
+        .click(stateOption.withText('Alabama'))
+        .typeText(this.zipPostCodeTextField, randomZipcode)
+        .click(countrySelect)
+        .click(countryOption.withText('United States'))
+        .typeText(this.mobilePhoneNumberTextField, randomMobilePhoneNumber)
+        .click(this.registerButton)
+        .wait(3000)
+    }
+      
+}
 }
 
 

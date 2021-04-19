@@ -1,0 +1,21 @@
+[
+    {
+        "firstname": "Eddy",
+        "lastname" : "Volosovici",
+        "company"  : "Kent",
+        "city"     : "Cluj-Napoca"
+
+    },
+    {
+        "firstname": "Cat",
+        "lastname" : "Ipsum",
+        "company"  : "Kent",
+        "city"     : "Bucuresti"
+    },
+    {
+        "firstname": "Arthas",
+        "lastname" : "Storm",
+        "company"  : "Lorda",
+        "city"     : "Eron"
+    }
+]
