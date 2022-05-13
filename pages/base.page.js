@@ -1,10 +1,9 @@
 import { Selector } from 'testcafe'
 
-
 // THIS IS A PLACEHOLDER PAGE IGNORE IT
 
 class BasePage {
-  constructor() {
+  constructor () {
     // this.loginButton = Selector('a').withText('Sign in')
   }
 

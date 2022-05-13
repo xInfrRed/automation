@@ -6,9 +6,10 @@
   "author": "xInfrRed <xinfrredx@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
     "testcafe": "^1.14.0"
   },
   "devDependencies": {
-    "Faker": "^0.7.2"
+    "faker": "^5.5.3"
   }
 }
